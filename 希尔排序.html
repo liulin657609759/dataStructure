@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=[4,5,2,5,2,5,9,1],
+            gap=[4,3,2,1];
+        function shellSort(arr,gap){
+            for(let i=0;i<gap.length;i++){
+                let n=gap[i];
+                for(let j=i+n;j<arr.length;j++){
+                    for(let k=j;k>0;k-=n){
+                        if(arr[k]<arr[k-n]){
+                        [arr[k],arr[k-n]]=[arr[k-n],arr[k]] 
+                        }
+                    }
+                }
+            }
+            return arr
+        }
+        console.log(shellSort(arr,gap))
+    </script>
+</body>
+</html>

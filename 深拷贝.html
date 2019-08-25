@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a={
+            name:"hhhh",
+            age:11
+        }
+        var b={
+            name:"ssss",
+            method:{
+                dance:"踢踏舞"
+            },
+            play:["basketball","pingpang"]
+        }
+        // function Clone(orgin,target){
+        //     var target=target||{};
+        //     for(var key in orgin){
+        //         if(orgin.hasOwnProperty(key)){
+        //             target[key]=orgin[key];
+        //         }
+        //     }
+        //     return target
+        // }
+        // Clone(a);
+        // 深拷贝
+    function deepClone(origin,target){
+        var target=target||{};
+        var tostr=Object.prototype.toString;
+        var arrType="[object Array]";
+        for(var key in origin){
+            if(origin.hasOwnProperty(key)){
+                if(typeof(origin[key])==="object"&&origin[key]!=null){
+                    tostr.call(origin[key])===arrType?target[key]=[]
+                                                     :target[key]={};
+                        deepClone(origin[key],target[key]);
+                    }else{
+                        target[key]=origin[key]
+                    }
+            }
+        }
+        return target;
+    }
+    console.log(deepClone(b))
+    </script>
+</body>
+</html>
