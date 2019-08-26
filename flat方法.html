@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // flon方法：将嵌套数组转化成一般数组 ：[1,[2,3],4]=>[1,2,3,4]
+        arr=[1,[2,33],4];
+        Array.prototype.myflat=function(){
+            var arr=[];
+            var toStr=Object.prototype.toString;
+            var arrType="[object Array]";
+            this.forEach((item,idx) => {
+                if(item.toStr==arrType){
+                    arr=arr.concat(item.myflat())
+                }else{
+                    arr.push(item)
+                }
+            });
+            return arr;
+        }
+        console.log(arr.myflat())
+    </script>
+</body>
+</html>

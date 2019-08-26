@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 实现一个二叉树
+        function Node(data,left,right){
+            this.left=left;
+            this.right=right;
+            this.data=data;
+            this.show=()=>{return this.data}
+        }
+        function BST(){
+            this.root=null;
+            this.insert=insert
+        }
+        function insert(data){
+            var node = new Node(data,null,null);
+            if(this.root==null){
+                this.root=node
+            }else{
+                var current = this.root;
+                while(1){
+                    if(current.data>data){
+                        if(current.left==null){
+                            current.left=node;
+                            break
+                        }
+                        current=current.left
+                    }else{
+                        if(current.right==null){
+                            current.right=node;
+                            break
+                        }
+                        current=current.right
+                    }
+                }
+            }
+        }
+        var bst=new BST();
+        bst.insert(2);
+        bst.insert(1);
+        bst.insert(3);
+        bst.insert(5);
+        bst.insert(0);
+        console.log(bst)
+        // 二叉树的遍历
+        // 中序遍历
+        console.log("中序遍历");
+        function inOrder(node){
+            if(node!==null){
+                inOrder(node.left);
+                console.log(node.data)
+                inOrder(node.right)
+            }
+        }
+        inOrder(bst.root);
+
+        // 先序遍历
+        console.log("先序遍历");
+        function proOrder(node){
+            if(node!==null){
+                console.log(node.data);
+                proOrder(node.left);
+                proOrder(node.right);
+            }
+        }
+        proOrder(bst.root);
+
+        // 后序遍历
+        console.log("后序遍历");
+        function postOrder(node){
+            if(node!==null){
+                postOrder(node.left);
+                postOrder(node.right);
+                console.log(node.data);
+            }
+        }
+        postOrder(bst.root)
+    </script>
+</body>
+</html>
