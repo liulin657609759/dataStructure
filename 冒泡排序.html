@@ -20,7 +20,7 @@
                     }
                 }
             }
-            return arr
+            return arr//其实不用return 因为arr是引用类型，改变arr就直接在堆内存中改变
         }
         
         console.log(bubleSort(arr))
