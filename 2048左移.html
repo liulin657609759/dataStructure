@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var arr=[[0 ,0 ,2 ,4],[0 ,2 ,2 ,2],[0 ,4, 2 ,2],[8 ,8 ,2 ,2]];
+    console.log(solution(arr))
+    function solution(input) {
+    var i,j;
+        for(i=0;i<input.length;i++){
+            for(j=0;j<input[0].length-1;j++){
+                if(input[i][j]==input[i][j+1]){
+                    input[i][j+1]+=input[i][j];
+                    input[i][j]=0
+                }
+                clear(input)
+            }
+        }
+        return input
+    }
+    function clear(input){
+        for(i=0;i<input.length;i++){
+            for(j=input[0].length-1;j>=0;j--){
+                for(var k=j;k<input.length;k++)
+                    if(input[i][j]!=0&&input[i][k]==0){
+                        input[i][k]=input[i][j];
+                        input[i][j]=0
+                    }
+            }
+        }
+    }
+    </script>
+</body>
+</html>

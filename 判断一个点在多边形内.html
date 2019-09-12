@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var point=[1,2],points=[[1,2],[36667777777777777,2],[1,0]];
+        var str="1,1.5 0,0 2,0 1,2 0,2"
+        //将字符串变成二维数组 
+            var arr=str.split(" ");
+            console.log(arr)
+            var arr2=[];
+            for(var i=0;i<arr.length;i++){
+                var arr1=[];
+                var m=arr[i].split(",");
+                for(var j=0;j<m.length;j++){
+                    arr1.push(Number(m[j]))
+                }
+                arr2.push(arr1)
+            }
+            
+            console.log( arr2)
+
+            var point=arr2[0],points=arr2.shift()
+            console.log(iscont(point,points))
+            arr=[];
+
+        function iscont(point,points){
+            var count=0;
+            var i,x,p1,p2;
+            var pointCount=points.length;
+            p1=points[0];
+            for(i=1;i<pointCount;i++){
+                p2=points[i%pointCount];
+                if(point[0]>Math.min(p1[0],p2[0]) && point[0]<=Math.max(p1[0],p2[0])){
+                    if(point[1]<=Math.max(p1[1],p2[1])){
+                        if(p1[0]!=p2[0]){
+                            x=(point[0]-p1[0])*(p2[1]-p1[1])/(p2[0]-p1[0])+p1[1];
+                            if(p1[1]==p2[1]||point[1]<=x){
+                                count++
+                            }
+                        }
+                    }
+                }
+                p1=p2;
+            }
+            if(count%2==0){
+                return false
+            }else{
+                return true
+            }
+        }    
+    </script>
+</body>
+</html>

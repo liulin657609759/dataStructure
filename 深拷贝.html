@@ -37,8 +37,10 @@
         var arrType="[object Array]";
         for(var key in origin){
             if(origin.hasOwnProperty(key)){
-                if(typeof(origin[key])==="object"&&origin[key]!=null){
-                    tostr.call(origin[key])===arrType?target[key]=[]
+                
+                if(typeof(origin[key]) ==="object"&&origin[key]!=null){
+
+                    tostr.call(origin[key])===arrType? target[key]=[]
                                                      :target[key]={};
                         deepClone(origin[key],target[key]);
                     }else{

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function circle(num) {
+            var play=[];
+            for(var i=1;i<num;i++){
+                play.push(i)
+            }
+            var flag=0;
+            while(play.length>1){
+                var outNum=0,len=play.length;
+                for(var i=0;i<len;i++){
+                    flag++;
+                    if(flag==5){
+                        flag=0;
+                        play.splice(i-outNum,1);
+                        outNum++
+                    }
+                }
+            }
+            console.log( play[0])
+        }    
+        circle(7)
+        console.log(number(14))
+        function  number(num){
+            var count =1;
+            var arr=[];
+            while(num--){
+                arr=count.toString();
+                console.log(arr)
+                console.log(arr.indexOf("4"))
+                arr.indexOf("4")<0?count++:count+2;
+                console.log(count);
+                arr=[];
+            }
+            return count
+        }
+        var arr1=["1","2"];
+        console.log(arr1.indexOf("0"))
+    </script>
+</body>
+</html>

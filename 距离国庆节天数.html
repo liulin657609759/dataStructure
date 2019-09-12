@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var date1="2019-11-01"
+        var date2="2019-10-01"
+        function days(date1,date2){
+            var date3=date1.split("-");
+            var date4=date2.split("-"),
+                date5=new Date(date3[1]+'-'+date3[2]+'-'+date3[0]),
+                date6=new Date(date4[1]+'-'+date4[2]+'-'+date4[0]);
+            var day=parseInt(Math.abs(date6-date5)/1000/60/60/24);
+            if(day==0){
+                return "国庆节快乐"
+            }else if(day==1){
+                return "明天是国庆节"
+            }else if(day==2){
+                return "后天是国庆节"
+            }else{
+                return "距离国庆节还有"+day+"天"
+            }
+        }
+        console.log(days(date1,date2))    
+    </script>
+</body>
+</html>

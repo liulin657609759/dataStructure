@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var x="1+2i";
+        var y="2+3i";
+        function result(x,y){
+            var a1=parseInt(x.split('+')[0]);
+            var a2=parseInt(y.split('+')[0]);
+            var b1=parseInt(x.split('+')[1].split('i')[0]);
+            var b2=parseInt(y.split('+')[1].split('i')[0]);
+            var rea=a1*a2-b1*b2;
+            var reb=a1*b2+a2*b1;
+            return rea+ "+" +reb+"i";
+        }    
+        console.log(result(x,y))
+
+        function transform(arr,k){
+            let count=arr.length;
+            k=k%count;
+            for(let i=count-1;i>=0;i--){
+                arr[i+k]=arr[i]
+            }
+            for(let j=k-1;j>=0;j--){
+                arr[j]=arr[count+j];
+                arr.pop();
+            }
+            return arr;
+        }
+        var n=[1,2,3,4,5];
+        var k=2;
+        console.log(transform(n,k))
+    </script>
+</body>
+</html>
